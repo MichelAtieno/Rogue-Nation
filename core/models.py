@@ -12,7 +12,6 @@ class NewsItem(models.Model):
 
 class Client(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-   
     start_date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
