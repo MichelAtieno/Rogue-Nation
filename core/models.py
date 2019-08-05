@@ -5,6 +5,8 @@ from django.db import models
 class NewsItem(models.Model):
     title = models.CharField(max_length=100)
     news_story = models.CharField(max_length=1000, default="")
+    image = models.ImageField(upload_to="media/", blank=True)
+    date = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.title

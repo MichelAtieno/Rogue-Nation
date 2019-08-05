@@ -7,4 +7,10 @@ def home(request):
     context = {
         'news': NewsItem.objects.all()
     }
+    return render(request, "home_page.html", context)
+
+def news(request):
+    context = {
+        'news': NewsItem.objects.all()
+    }
     return render(request, "news.html", context)

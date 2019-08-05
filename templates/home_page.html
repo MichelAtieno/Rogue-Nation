@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Rogue Nation</title>
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+       
+    </head>
+    
+
+   
+        <body>
+            <div class="container">
+                  
+                    
+                    <div class="jumbotron">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="content" class="main_content">  
+                                        <div class="info">
+                                                <h2>News</h2>
+
+                                                {% for new in news %}
+                                                  {{ new.title }}
+                                                
+                                                {% endfor%}
+                                            <!-- <div class="wrap">
+                                                <div id="arrow-left" class="arrow"></div>
+                                                <div id="slider">
+                                                    <div class="slide slide1" style="background-image:url('static/images/women.jpg');">
+                                                        <div class="slide-content">
+                                                            <span>Image One</span> 
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide slide2" style="background-image:url('static/images/Kipchoge.jpg');">
+                                                        <div class="slide-content">
+                                                            <span>Image Two</span> 
+                                                        </div>
+                                                    </div>
+                                                    <div class="slide slide3" style="background-image:url('static/images//vivi-cheruiyot.jpg');">
+                                                        <div class="slide-content">
+                                                            <span>Image Three</span> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="arrow-right" class="arrow"></div>
+                                            </div> -->
+                                           <!-- <div class="carousel-container">
+                                               <div class="carousel-slide">
+                                                   <img src="images/vivi-cheruiyot.jpg" id="lastClone" alt="">
+                                                   <img src="images/victor-wanyama.jpg" alt="">
+                                                   <img src="images/Kipchoge.jpg" alt="">
+                                                   <img src="images/Mariga.jpg" alt="">
+                                                   <img src="images/simmons.jpg" alt="">
+                                                   <img src="images/vivi-cheruiyot.jpg" id="firstClone" alt="">
+                                               </div>
+    
+                                           </div>
+                                           <button id="prevBtn">Prev</button>
+                                           <button id="nextBtn">Next</button> -->
+                                        </div>
+                                    </div>
+            
+                                </div>
+                     </div>
+                    </div>    
+            </div>
+            
+            
+    </body>
+    </html>
+
+{% endblock %}
