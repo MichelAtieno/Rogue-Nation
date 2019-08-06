@@ -21,7 +21,7 @@
                                    <div class="col-md-11">
                                    
                                     <div class="card-columns">
-                                        {% for new in queryset %}
+                                        {% for new in most_recent %}
                                         <div class="card">
                                                 <span>Posted on {{ new.date }}</span>
                                                 <br>
@@ -50,7 +50,7 @@
                                             {% endif %}
                                         </ul>
                                     </nav>
-                                    <div class="blog-posts">
+                                    <!-- <div class="blog-posts">
                                         {% for new in most_recent %}
                                         <a href="{{ new.get_absolute_url }}">
                                             <div class="item d-flex align-items-center">
@@ -61,7 +61,7 @@
                                             </div></a>
                                             {% endfor %}
                                     </div>
-                                    
+                                     -->
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>   

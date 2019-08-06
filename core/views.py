@@ -21,7 +21,7 @@ def home(request):
     return render(request, "home_page.html", context)
 
 def news(request):
-    most_recent = NewsItem.objects.order_by('-date')[:3]
+    most_recent = NewsItem.objects.order_by('-date')[0:6]
     news = NewsItem.objects.all()
     paginator = Paginator(news, 6)
     page_request_var = 'page'
