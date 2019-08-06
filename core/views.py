@@ -1,9 +1,23 @@
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from .models import NewsItem, SignUp
 
 # Create your views here.
+
+def search(request):
+    queryset = NewsItem.objects.all()
+    query = request.GET.get('q')
+    if query:
+        queryset = queryset.filter(
+            Q(title__icontains=query)|
+            Q(news_story__icontains=query)
+        ).distinct()
+    context = {
+        'queryset': queryset
+    }
+
+    return render(request, 'search_results.html', context)
 
 def get_category_count():
     queryset = NewsItem.objects.values('categories__title').annotate(Count('categories__title'))

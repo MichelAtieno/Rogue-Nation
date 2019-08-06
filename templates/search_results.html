@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="news_content" class="main_content" style="background-color: #818181; margin-left: 300px;">  
+<div class="info">
+    
+    {% for post in queryset %}
+        <h2>This is the result of your search</h2> 
+
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+
+    {% endfor %}
+</div>
+</div>
+
+{% endblock %}
