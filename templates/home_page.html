@@ -14,54 +14,188 @@
     
 
    
-        <body>
-            <div class="container">
-                  
-                    
-    <div class="jumbotron">
-            <div class="row">
+        <body style="background-color: #000">
+        <div class="container">
+            <div class="row" id="news_title">
                 <div class="col-md-12">
-                    <div id="content" class="main_content">  
-                        <div class="info">
-                                <h2>News</h2>
+                    <h1 >Home</h1>
+                </div>
+            </div>      
+                    
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div id="content" class="main_content" style="background-color: #818181">  
+                    <div class="info">
+                           
+                        <div class="row">
+                            <div class="col-md-11">
+                                <div class="wrap" id="news-slide">
+                                    <div id="arrow-left" class="arrow"></div>
+                                    {% for new in object_list %}
+                                    <div id="slider">
+                                        <div class="slide slide1" style="background-image:url('{{new.image.url}}');">
+                                            <div class="slide-content">
+                                                <p>{{ new.title}}</p> 
+                                                <p>posted on {{ new.date}}</p>
+                                                <button class="btn btn-danger">Show more</button>
+                                            </div>
+                                        </div>
+                                    
+                                    
+                                    </div>
+                                    {% endfor %}
+                                    
+                                    <div id="arrow-right" class="arrow"></div>
+                                </div>
+                                <section class="latest-posts"> 
+                                        <div class="container">
+                                            <header> 
+                                            <h2>Latest from the blog</h2>
+                                            <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                            </header>
+                                            <div class="row">
+                                            {% for new in latest %}
+                                            <div class="post col-md-4">
+                                                <div class="post-thumbnail"><a href="#"><img src="{{ new.image.url }}" alt="..." class="img-fluid"></a></div>
+                                                <div class="post-details">
+                                                <div class="post-meta d-flex justify-content-between">
+                                                    <div class="date">{{ new.date }}</div>
+                                                    <div class="category">
+                                                        {% for cat in new.categories.all %}
+                                                        <a href="#">{{ cat }}</a>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div><a href="#">
+                                                    <h3 class="h4">{{ new.title }}</h3></a>
+                                                <p class="text-muted">{{ new.news_story }}</p>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            </div>
+                                        </div>
+                                </section>
 
-                            <div class="wrap">
-                                <div id="arrow-left" class="arrow"></div>
-                                {% for new in news %}
-                                <div id="slider">
-                                    <div class="slide slide1" style="background-image:url('{{new.image.url}}');">
-                                        <div class="slide-content">
-                                            <span>{{ new.title}}</span> 
-                                            <span>posted on {{ new.date}}</span> 
+                                <section class="newsletter no-padding-top">    
+                                    <div class="container">
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                            <h2>Subscribe to Newsletter</h2>
+                                            <p class="text-big">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-holder">
+                                            <form action="#" method="POST">
+                                                {% csrf_token %}
+                                                <div class="form-group">
+                                                <input type="email" name="email" id="email" placeholder="Type your email address">
+                                                <button type="submit" class="submit">Subscribe</button>
+                                                </div>
+                                            </form>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
-                                
-                                
-                                </div>
-                                {% endfor %}
-                                
-                                <div id="arrow-right" class="arrow"></div>
+                                </section>
+
                             </div>
-                                           <!-- <div class="carousel-container">
-                                               <div class="carousel-slide">
-                                                   <img src="images/vivi-cheruiyot.jpg" id="lastClone" alt="">
-                                                   <img src="images/victor-wanyama.jpg" alt="">
-                                                   <img src="images/Kipchoge.jpg" alt="">
-                                                   <img src="images/Mariga.jpg" alt="">
-                                                   <img src="images/simmons.jpg" alt="">
-                                                   <img src="images/vivi-cheruiyot.jpg" id="firstClone" alt="">
-                                               </div>
-    
-                                           </div>
-                                           <button id="prevBtn">Prev</button>
-                                           <button id="nextBtn">Next</button> -->
+                            <div class="col-md-1">
+
+                            </div>
+                        </div>
+                      
+                           
+
+                            <!-- <section class="featured-posts no-padding-top">
+                                    <div class="container">
+                                      <!-- Post-->
+                                      <!-- {% for new in object_list %}
+                                      <div class="row d-flex align-items-stretch">
+                                        {% if not forloop.first or not forloop.last %}
+                                        <div class="image col-md-5"><img src="{{ new.image.url }}" alt="..." class="img-fluid"></div>
+                                        {% endif %}
+                                        <div class="text col-lg-7">
+                                          <div class="text-inner d-flex align-items-center">
+                                            <div class="content">
+                                                
+                                              <header class="post-header">
+                                                <div class="category">
+                                                    {% for cat in new.categories.all %}
+                                                    <a href="#">{{ cat }}</a>
+                                                    {% endfor %}
+                                                </div><a href="post.html">
+                                                  <h2 class="h4">{{ new.title }}</h2></a>
+                                              </header>
+                                              <p>{{ new.news_story }}</p>
+                                              <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+                                                  
+                                                <div class="date"><i class="icon-clock"></i> {{ new.date }}</div>
+                                                
+                                              </footer>
+                                              
+                                            </div>
+                                          </div>
                                         </div>
+                                        {% if forloop.first or forloop.last %}
+                                        <div class="image col-md-5"><img src="{{ new.image.url }}" alt="..." class="img-fluid"></div>
+                                        {% endif %}
                                     </div>
-            
-                                </div>
-                     </div>
-                    </div>    
+                                      {% endfor %}
+                                     
+                                    </div>
+                                  </section> --> 
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                   
+                  
+                  
+                  <!-- Divider Section-->
+                  
+                  <!-- Latest Posts -->
+                
+                  <!-- Newsletter Section-->
+                  
+                  <!-- Gallery Section-->
+                  <section class="gallery no-padding">    
+                    <div class="row">
+                      <div class="mix col-lg-3 col-md-3 col-sm-6">
+                        <div class="item"><a href="img/gallery-1.jpg" data-fancybox="gallery" class="image"><img src="img/gallery-1.jpg" alt="..." class="img-fluid">
+                            <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+                      </div>
+                      <div class="mix col-lg-3 col-md-3 col-sm-6">
+                        <div class="item"><a href="img/gallery-2.jpg" data-fancybox="gallery" class="image"><img src="img/gallery-2.jpg" alt="..." class="img-fluid">
+                            <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+                      </div>
+                      <div class="mix col-lg-3 col-md-3 col-sm-6">
+                        <div class="item"><a href="img/gallery-3.jpg" data-fancybox="gallery" class="image"><img src="img/gallery-3.jpg" alt="..." class="img-fluid">
+                            <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+                      </div>
+                      <div class="mix col-lg-3 col-md-3 col-sm-6">
+                        <div class="item"><a href="img/gallery-4.jpg" data-fancybox="gallery" class="image"><img src="img/gallery-4.jpg" alt="..." class="img-fluid">
+                            <div class="overlay d-flex align-items-center justify-content-center"><i class="icon-search"></i></div></a></div>
+                      </div>
+                    </div>
+                  </section>
+                  <!-- Page Footer-->
+                 
+                  <!-- JavaScript files-->
             </div>
+
+        </div>
+
+    
+                     
+                       
+                      
+             
+        </div>
+        
             
             
     </body>
