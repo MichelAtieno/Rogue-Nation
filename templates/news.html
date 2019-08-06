@@ -50,6 +50,23 @@
                                             {% endif %}
                                         </ul>
                                     </nav>
+
+                                    <div class="widget categories">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h1 style="color:#000">Categories</h1>
+                                            </div>
+                                        </div>
+                                        {% for cat in category_count %}
+                                        <div>
+                                            <a href="#">{{ cat.categories__title }}</a>
+                                            <span>{{ cat.categories__title__count }}</span>
+                                        </div>
+                                        
+                                        {% endfor %}    
+                                    </div>
+
+                                    
                                     <!-- <div class="blog-posts">
                                         {% for new in most_recent %}
                                         <a href="{{ new.get_absolute_url }}">

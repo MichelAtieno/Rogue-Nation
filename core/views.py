@@ -1,8 +1,13 @@
+from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from .models import NewsItem, SignUp
 
 # Create your views here.
+
+def get_category_count():
+    queryset = NewsItem.objects.values('categories__title').annotate(Count('categories__title'))
+    return queryset
 
 def home(request):
     queryset = NewsItem.objects.filter(featured=True)
@@ -21,6 +26,8 @@ def home(request):
     return render(request, "home_page.html", context)
 
 def news(request):
+    category_count = get_category_count()
+    # print(category_count)
     most_recent = NewsItem.objects.order_by('-date')[0:6]
     news = NewsItem.objects.all()
     paginator = Paginator(news, 6)
@@ -36,7 +43,8 @@ def news(request):
     context = {
         'queryset': paginated_queryset,
         'most_recent': most_recent,
-        'page_request_var': page_request_var
+        'page_request_var': page_request_var,
+        'category_count': category_count
     }
     return render(request, "news.html", context)
 
