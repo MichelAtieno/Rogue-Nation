@@ -12,7 +12,7 @@ class NewsItem(models.Model):
     title = models.CharField(max_length=100)
     news_story = models.CharField(max_length=1000, default="")
     image = models.ImageField(upload_to="news_media/", blank=True)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     categories = models.ManyToManyField(Category)
     featured = models.BooleanField()
 
