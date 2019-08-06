@@ -18,40 +18,30 @@
             <div class="container">
                   
                     
-                    <div class="jumbotron">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div id="content" class="main_content">  
-                                        <div class="info">
-                                                <h2>News</h2>
+    <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="content" class="main_content">  
+                        <div class="info">
+                                <h2>News</h2>
 
-                                                {% for new in news %}
-                                                  {{ new.title }}
-                                                
-                                                {% endfor%}
-                                            <!-- <div class="wrap">
-                                                <div id="arrow-left" class="arrow"></div>
-                                                <div id="slider">
-                                                    <div class="slide slide1" style="background-image:url('static/images/women.jpg');">
-                                                        <div class="slide-content">
-                                                            <span>Image One</span> 
-                                                        </div>
-                                                    </div>
-                                                    <div class="slide slide2" style="background-image:url('static/images/Kipchoge.jpg');">
-                                                        <div class="slide-content">
-                                                            <span>Image Two</span> 
-                                                        </div>
-                                                    </div>
-                                                    <div class="slide slide3" style="background-image:url('static/images//vivi-cheruiyot.jpg');">
-                                                        <div class="slide-content">
-                                                            <span>Image Three</span> 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                                <div id="arrow-right" class="arrow"></div>
-                                            </div> -->
+                            <div class="wrap">
+                                <div id="arrow-left" class="arrow"></div>
+                                {% for new in news %}
+                                <div id="slider">
+                                    <div class="slide slide1" style="background-image:url('{{new.image.url}}');">
+                                        <div class="slide-content">
+                                            <span>{{ new.title}}</span> 
+                                            <span>posted on {{ new.date}}</span> 
+                                        </div>
+                                    </div>
+                                
+                                
+                                </div>
+                                {% endfor %}
+                                
+                                <div id="arrow-right" class="arrow"></div>
+                            </div>
                                            <!-- <div class="carousel-container">
                                                <div class="carousel-slide">
                                                    <img src="images/vivi-cheruiyot.jpg" id="lastClone" alt="">

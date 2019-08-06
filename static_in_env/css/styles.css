@@ -17,6 +17,7 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    text-align:center;
     min-height: 8vh;
     background-color: #000;
     overflow:hidden;
@@ -204,22 +205,24 @@ nav .burger {
    
     background-color: #000;
     box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.2);
-    margin-left:-10px;
     text-align: center;
     align-items: center;
+    width: 75%;
+    margin-top: 2px;
+    margin-right: -15px;
 }
    
 
 
 
 .main_content .info .card .btn{
-    padding: 1rem 2.5rem;
+    padding: 0.5rem 1.5rem;
     background-color: red;
     border-radius: 2rem;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     text-transform: uppercase;
     color: #eee;
-    font-size: 1.4rem;
+    font-size: 1rem;
     transition: all .5s;
    
 }
@@ -235,18 +238,30 @@ nav .burger {
 }
 
 #news_title{
-    height:10vh;
+    height:12vh;
     width:100%;
     margin-left:200px;
     left:0;
     background-color:#303030;
     margin-top:0;
     color: #fff;
+    margin-bottom:0;
 }
 
 #news_content{
     margin-left: 215px;
 }
+
+.swiper-container {
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+  }
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
 
 /* .carousel-container{
     width:60%;

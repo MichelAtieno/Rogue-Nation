@@ -4,7 +4,7 @@
 <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body style="background-color: #818181">
+<body style="background-color: #000">
 
 
 <div class="container">
@@ -15,26 +15,28 @@
             </div>
         </div>       
         
-                
-                        <div id="news_content" class="main_content">  
+
+                        <div id="news_content" class="main_content" style="background-color: #818181">  
                             <div class="info">
                                <div class="row">
-                                   <div class="col">
+                                   
+                                   <div class="col-md-11">
                                    
                                     <div class="card-columns">
                                         {% for new in news %}
                                         <div class="card">
-                                            <div class="card-body">
+                                                <span>Posted on {{ new.date }}</span>
                                                 <img src="{{ new.image.url }}" alt="" class="card-img img-fluid">
                                                 <h2 class="card-title">{{ new.title }}</h2>
                                                 <p>{{ new.news_story }}</p>
                                                 <button class="btn btn-danger">Show more</button>
-                                            </div>
+                                            
                                         </div>
                                         {% endfor %}   
                                     </div>
                                     
                                 </div>
+                                <div class="col-md-1"></div>
                             </div>   
                                       
                             </div>
