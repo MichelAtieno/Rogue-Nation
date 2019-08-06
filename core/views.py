@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from .models import NewsItem, SignUp
 
@@ -20,7 +21,25 @@ def home(request):
     return render(request, "home_page.html", context)
 
 def news(request):
+    most_recent = NewsItem.objects.order_by('-date')[:3]
+    news = NewsItem.objects.all()
+    paginator = Paginator(news, 6)
+    page_request_var = 'page'
+    page = request.GET.get(page_request_var)
+    try:
+        paginated_queryset = paginator.page(page)
+    except PageNotAnInteger:
+        paginated_queryset = paginator.page(1)
+    except EmptyPage:
+        paginated_queryset = paginator.page(paginator.num_pages)
+    
     context = {
-        'news': NewsItem.objects.all()
+        'queryset': paginated_queryset,
+        'most_recent': most_recent,
+        'page_request_var': page_request_var
     }
     return render(request, "news.html", context)
+
+def post(request, id):
+    
+    return render(request, 'post.html')

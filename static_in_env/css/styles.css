@@ -129,8 +129,12 @@ nav .burger {
 
 .main_content .info {
     margin: 20px;
-    color: #717171;
+   
     line-height: 25px;
+}
+
+#new_content .info .card span{
+    color: #fff;
 }
 
 .main_content .info div{
@@ -205,7 +209,7 @@ nav .burger {
 
 .main_content .info .card{
    
-    background-color: #000;
+    background-color: #bdb8d7;
     box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.2);
     text-align: center;
     align-items: center;
@@ -278,6 +282,7 @@ font-size: 1rem;
 transition: all .5s;
 
 }
+
 
 /* .carousel-container{
     width:60%;

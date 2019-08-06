@@ -21,16 +21,45 @@
                                    <div class="col-md-11">
                                    
                                     <div class="card-columns">
-                                        {% for new in news %}
+                                        {% for new in queryset %}
                                         <div class="card">
                                                 <span>Posted on {{ new.date }}</span>
+                                                <br>
+                                                {% for cat in new.categories.all %}
+                                                <a class="category" href="#"><span>{{ cat }}</span></a>
+                                                {% endfor %}
+                                                
                                                 <img src="{{ new.image.url }}" alt="" class="card-img img-fluid">
                                                 <h2 class="card-title">{{ new.title }}</h2>
                                                 <p>{{ new.news_story }}</p>
-                                                <button class="btn btn-danger">Show more</button>
+                                                <a href="{{ new.get_absolute_url}}" class="btn btn-danger">Show more</a>
                                             
                                         </div>
                                         {% endfor %}   
+                                    </div>
+
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination pagination-template d-flex justify-content-center">
+                                            {% if queryset.has_previous %}
+                                            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                                            {% endif %}
+                                            <li class="page-item"><a href="" class="page-link active">{{ queryset.number }}</a></li>
+                                            
+                                            {% if queryset.has_next %}
+                                            <li class="page-item"><a href="?{{ page_request_var }}={{ queryset.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                    <div class="blog-posts">
+                                        {% for new in most_recent %}
+                                        <a href="{{ new.get_absolute_url }}">
+                                            <div class="item d-flex align-items-center">
+                                            <div class="image"><img src="{{ new.image.url }}" alt="..." class="img-fluid"></div>
+                                            <div class="title"><strong>{{ new.title }}</strong>
+                                                
+                                            </div>
+                                            </div></a>
+                                            {% endfor %}
                                     </div>
                                     
                                 </div>
