@@ -65,3 +65,7 @@ def news(request):
 def post(request, id):
     
     return render(request, 'post.html')
+
+def news_letter(request):
+
+    return render(request, 'news_letter.html')

@@ -1,21 +1,48 @@
-<nav class="navbar">
-        <div class="widget search">
-            <header>
-                <h3 class="h6">Search the blog</h3>
-            </header>
-            <form action="{% url 'core:search' %}" class="search-form">
-                <div class="form-group">
-                <input type="search" name="q" placeholder="What are you looking for?">
-                <button type="submit" class="submit"><i class="icon-search"></i></button>
-                </div>
-            </form>
+<html>
+<head>
+    <style>
+        nav h2{
+            color: #fff;
+        }
+        
+    
+        @media screen and (max-width:800px){
+            .newsletter{
+                display:none;
+            }
+            nav h2{
+                color: #fff;
+                text-align: center;
+                font-size: 46px;
+            }
+            nav .burger{
+                left:0; 
+            }
+            #nav-header{
+                width:100%;
+            }
+            nav .search{
+                display:none;
+            }
+            nav .burger{
+                top: 0;
+            }
+        
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar row">
+        <div class="newsletter col-md-3 col-xs-12">
+            <a href="/newsletter" style="color:#fff;font-size: 20px;">Signup now<i class="fas fa-envelope"></i></a>
         </div>
+        
 
-        <h1>
+        <h2 id="nav-header">
             ROGUE NATION
-        </h1>
+        </h2>
 
-        <span class="burger">
+        <span class="burger col-md-3 col-xs-12" >
             <a href="#" onclick="openSlideMenu()">
                 <svg width="30" height="30">
                     <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
@@ -24,6 +51,15 @@
                 </svg>
             </a>
         </span>
+
+        <div class="col-md-3 col-xs-12 search">
+            <form action="{% url 'core:search' %}" class="search-form">
+                <div class="form-group">
+                <input type="search" name="q" placeholder="Search Here">
+                <button type="submit" class="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
 
     </nav>
     
@@ -118,3 +154,5 @@
                 </div>
             </div>
     </div>
+</body>
+</html>
