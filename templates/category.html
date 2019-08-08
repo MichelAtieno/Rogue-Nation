@@ -58,23 +58,18 @@
         <div class="info">
         <div class="row">
             <div class="col-md-11">
-                <div>
-                    {% for cat in all_categories %}
-                         <span>
-                            <a href="{{ cat.get_absolute_url }}">{{ cat }}</a>  
-                        </span>
-                    {% endfor %}
-                </div>
+                
                 <div class="row">
                    
-                        {% for athlete in athletes %}
+                        {% for post in queryset %}
                         <div class="col-md-4">
                             
                             <div class="imageBox">
-                                <a href="{{  athlete.get_absolute_url}}">
-                                <img src="{{  athlete.image.url }}" class="card-img img-fluid">
+                                <a href="{{ post.get_absolute_url }}">
+                                <img src="{{ post.image.url }}" class="card-img img-fluid">
+                                <h3>{{  post.name }}</h3>
                                 </a>
-                                <h3>{{  athlete.name }}</h3>
+                                
                                 
                             </div>
                             

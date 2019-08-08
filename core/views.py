@@ -1,7 +1,7 @@
 from django.db.models import Count, Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
-from .models import NewsItem, SignUp, Artist, Athlete
+from .models import NewsItem, SignUp, Artist, Athlete, Category
 
 # Create your views here.
 
@@ -21,6 +21,10 @@ def search(request):
 
 def get_category_count():
     queryset = NewsItem.objects.values('categories__title').annotate(Count('categories__title'))
+    return queryset
+
+def get_category():
+    queryset = Athlete.objects.values('categories__title')
     return queryset
 
 def home(request):
@@ -76,6 +80,7 @@ def news_letter(request):
 def get_artist(request):
     artists = Artist.objects.all()
 
+
     context = {
      'artists': artists
     }
@@ -96,10 +101,14 @@ def artist_profile(request, id):
     return render(request, 'artist_profile.html', context)
 
 def get_athlete(request):
+    category = get_category()
     athletes = Athlete.objects.all()
+    all_categories = Category.objects.all()
 
     context = {
-     'athletes':athletes
+     'athletes':athletes,
+     'category': category,
+     'all_categories': all_categories
     }
     return render(request, 'athletes.html', context)
 
@@ -116,3 +125,16 @@ def athlete_profile(request, id):
         'queryset': queryset
     }
     return render(request, 'athlete_profile.html', context)
+
+def single_category(request):
+    queryset = Athlete.objects.all()
+    print(queryset)
+    query = request.GET.get('q')
+    if query:
+        queryset = queryset.filter(
+            Q(categories__title=query)
+        ).distinct()
+    context = {
+        'queryset': queryset
+    }
+    return render(request, 'category.html', context)
