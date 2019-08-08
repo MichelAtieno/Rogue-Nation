@@ -1,7 +1,7 @@
 from django.db.models import Count, Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
-from .models import NewsItem, SignUp, Artist
+from .models import NewsItem, SignUp, Artist, Athlete
 
 # Create your views here.
 
@@ -94,3 +94,25 @@ def artist_profile(request, id):
         'queryset': queryset
     }
     return render(request, 'artist_profile.html', context)
+
+def get_athlete(request):
+    athletes = Athlete.objects.all()
+
+    context = {
+     'athletes':athletes
+    }
+    return render(request, 'athletes.html', context)
+
+def athlete_profile(request, id):
+    athlete = get_object_or_404(Athlete, id=id)
+    queryset = NewsItem.objects.all()
+    query = athlete.name
+    queryset = queryset.filter(
+        Q(title__icontains=query)|
+        Q(news_story__icontains=query)
+    ).distinct()
+    context = {
+        'athlete': athlete,
+        'queryset': queryset
+    }
+    return render(request, 'athlete_profile.html', context)

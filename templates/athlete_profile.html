@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="content" class="main_content" style="background-color: #818181">  
+    <div class="info">
+            <div id="content" class="main_content" style="background-color: #818181">  
+                    <div class="info">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <div class="row">
+                               
+                                  
+                                    <div class="col-md-6">
+                                        
+                                        <div class="imageBox">
+                                            <img src="{{ athlete.image.url }}" class="card-img img-fluid">
+                                            <h3>{{ athlete.name }}</h3>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        {% for post in queryset %}
+                                        
+        
+                                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                                
+                                        {% endfor %}
+                                    </div>
+                                   
+            
+                                
+                            </div>
+            
+                        </div>
+                        <div class="col-md-1"></div>
+                       
+                    </div>
+                </div>
+                </div>
+</div>
+</div>
+
+{% endblock %}
