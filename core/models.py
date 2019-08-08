@@ -9,6 +9,20 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+class Artist(models.Model):
+    image = models.ImageField(upload_to="artist_media/", blank=True)
+    name = models.CharField(max_length=100, default="artist")
+    start_date = models.DateTimeField(auto_now_add=True)
+    categories = models.ManyToManyField(Category)
+    
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('core:artist_profile',kwargs={
+            'id': self.id
+        })
+
 class NewsItem(models.Model):
     title = models.CharField(max_length=100)
     news_story = models.CharField(max_length=1000, default="")
@@ -27,14 +41,7 @@ class NewsItem(models.Model):
 
 
 
-class Artist(models.Model):
-    image = models.ImageField(upload_to="artist_media/", blank=True)
-    name = models.CharField(max_length=100, default="artist")
-    start_date = models.DateTimeField(auto_now_add=True)
-    categories = models.ManyToManyField(Category)
-    
-    def __str__(self):
-        return self.name
+
 
 class SignUp(models.Model):
     email = models.EmailField()

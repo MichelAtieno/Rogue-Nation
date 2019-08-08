@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, news, post, search, news_letter, get_artist
+from .views import home, news, post, search, news_letter, get_artist, artist_profile
 
 app_name= 'core'
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('search/',search, name="search"),
     path('newsletter/',news_letter, name="newsletter"),
     path('artists/',get_artist, name="artist"),
+    path('artist/<id>',artist_profile, name="artist_profile"),
 ]
