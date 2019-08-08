@@ -41,8 +41,8 @@ nav .burger {
 
 .wrapper {
     display: flex;
-    position: relative;
     background: #000000;
+    z-index: 1;
 }
 
 
@@ -92,7 +92,7 @@ nav .burger {
 }
 
 .wrapper .sidebar ul li:nth-child(1){
-    transition-delay: .6s;
+    transition-delay: .4s;
 }
 
 .wrapper .sidebar ul li:hover a{
@@ -114,7 +114,7 @@ nav .burger {
     height: 40px;
     line-height: 40px;
     text-align: center;
-    margin: 0 5x;
+    margin: 0 5px;
     color:#bdb8d7;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
@@ -213,7 +213,7 @@ nav .burger {
 #news_title{
     height:12vh;
     width:100%;
-    margin-left:200px;
+    margin-left:160px;
     left:0;
     background-color:#303030;
     margin-top:0;
@@ -247,18 +247,17 @@ text-transform: uppercase;
 color: #eee;
 font-size: 1rem;
 transition: all .5s;
-
 }
 
-@media screen and (min-width:800px){
+
+@media screen and (max-width:100px){
+
     
 }
 
 
 @media screen and (max-width:800px){
-    body{
-        overflow-x: hidden;
-    }
+    
 
     
 

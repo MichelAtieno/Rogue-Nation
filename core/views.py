@@ -1,7 +1,7 @@
 from django.db.models import Count, Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
-from .models import NewsItem, SignUp
+from .models import NewsItem, SignUp, Artist
 
 # Create your views here.
 
@@ -69,3 +69,11 @@ def post(request, id):
 def news_letter(request):
 
     return render(request, 'news_letter.html')
+
+def get_artist(request):
+    artists = Artist.objects.all()
+
+    context = {
+     'artists': artists
+    }
+    return render(request, 'artists.html', context)
