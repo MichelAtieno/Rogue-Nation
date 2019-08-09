@@ -35,6 +35,15 @@
     {% block extra_scripts %}
     {% endblock extra_scripts %}
     <script>
+                const navSlide = () => {
+                    const burger = document.querySelector('.menu');
+                    const nav = document.querySelector('.side-menu');
+
+                    burger.addEventListener('click',()=> {
+                        nav.classList.toggle('active');
+                    });
+                }
+              navSlide();
             function openSlideMenu(){
                 document.getElementById('side-menu').style.width = "100%";
                 

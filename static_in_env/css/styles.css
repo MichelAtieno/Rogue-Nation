@@ -20,17 +20,13 @@ nav{
     text-align:center;
     min-height: 8vh;
     background-color: #000;
-    overflow:hidden;
 }
 
 nav h2 {
     color: #fff;
 }
 
-nav .burger {
-    display: none;
-    cursor: pointer;
-}
+
 
 
 
@@ -326,36 +322,7 @@ transition: all .5s;
         margin-left: 0;
     }
 
-    .burger-menu .sidebar{
-        height: 70vh;
-        position: fixed;
-        left:0;
-        overflow-x: hidden;
-        padding-top: 10px;
-        transition: 0.5s;
-        text-transform: uppercase;
-        background: #000;
-        overflow: hidden;
-        
-    }
-
-    .burger-menu .sidebar ul li a{
-        color: #fff;
-    }
-
-    .burger-menu .sidebar ul li {
-        padding: 5px;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-        border-top: 1px solid #fff;
-    }
-
-    .burger-menu .sidebar .social_media{
-        display: none;
-    }
-
-    nav .burger {
-        display: block;
-    }
+    
 
     #closeButton {
         display: block;

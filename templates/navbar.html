@@ -1,30 +1,67 @@
 <html>
 <head>
     <style>
-        
+        .toggle{
+            display: none;
+            width: 100%;
+            padding: 10px 10px;
+            text-align: left;
+            box-sizing: border-box;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
         nav h2{
             color: #fff;
         }
 
         .wrapper .sidebar .newsletter{
         color: #fff;
-        margin: 10px;
+        margin-left: 10px;
+        bottom: 15px;
+        padding: 15px;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .burger-menu{
+        .side-menu{
             display: none;
+            
+            width: 100%;
+        
         }
-    
+        
+       
+
         @media screen and (max-width:800px){
+            body{
+                overflow-x: hidden;
+            }
+            .toggle{
+                display: block;
+               
+                }
+            .side-menu{
+                left:0;
+                top:0;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                transition: transform 0.8s ease-in;
+            }
+            nav ul li{
+                text-align: center;
+                display:none;
+               
+            }
+
             .newsletter{
                 display:none;
             }
             .wrapper{
                 display: none;
             }
-            .burger-menu{
-            display: block;
-        }
+            
             
             nav h2{
                 color: #fff;
@@ -41,10 +78,19 @@
             nav .search{
                 display:none;
             }
-            nav .burger{
-                top: 0;
+            .active{
+                transform: translateX(0%);
             }
-        
+
+            .active li{
+                text-align: center;
+                display:block;
+               
+            } 
+           
+
+           
+                
         }
     </style>
 </head>
@@ -59,15 +105,9 @@
             ROGUE NATION
         </h2>
 
-        <span class="burger col-md-3 col-xs-12" >
-            <a href="#" onclick="openSlideMenu()">
-                <svg width="30" height="30">
-                    <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
-                    <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
-                    <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
-                </svg>
-            </a>
-            
+        <span class="toggle col-md-3 col-xs-12" onclick="navSlide()">
+           
+            <i class="fas fa-bars menu"></i>
         </span>
         
         <div class="col-md-3 col-xs-12 search">
@@ -78,6 +118,90 @@
                 </div>
             </form>
         </div>
+
+        
+                
+                <ul class="side-menu">
+                   
+                    <li><a href="/"><i class="fas fa-home"></i>
+                        <span>H</span>
+                        <span>o</span>
+                        <span>m</span>
+                        <span>e</span>
+                    </a></li>
+                    <li><a href="#"><i class="fas fa-address-card"></i>
+                        <span>A</span>
+                        <span>b</span>
+                        <span>o</span>
+                        <span>u</span>
+                        <span>t</span>
+                        </a></li>
+                    <li><a href="/news"><i class="fas fa-user"></i>
+                        <span>N</span>
+                        <span>e</span>
+                        <span>w</span>
+                        <span>s</span>
+                    </a></li>
+                    <li><a href="#"><i class="fas fa-user"></i>
+                        <span>M</span>
+                        <span>u</span>
+                        <span>s</span>
+                        <span>i</span>
+                        <span>c</span>
+                    </a></li>
+                    <li><a href="#"><i class="fas fa-user"></i>
+                        <span>A</span>
+                        <span>r</span>
+                        <span>t</span>
+                        <span>i</span>
+                        <span>s</span>
+                        <span>t</span>
+                        <span>s</span>
+                    </a></li>
+                    <li><a href="#"><i class="fas fa-user"></i>
+                        <span>S</span>
+                        <span>p</span>
+                        <span>o</span>
+                        <span>r</span>
+                        <span>t</span>
+                        <span>s</span>
+                    </a></li>
+                    <li><a href="#"><i class="fas fa-address-book"></i>
+                        <span>P</span>
+                        <span>a</span>
+                        <span>r</span>
+                        <span>t</span>
+                        <span>n</span>
+                        <span>e</span>
+                        <span>r</span>
+                        <span>s</span>
+                    </a></li>
+                    
+                    <li><a href="#"><i class="fas fa-project-diagram"></i>
+                        <span>P</span>
+                        <span>h</span>
+                        <span>i</span>
+                        <span>l</span>
+                        <span>a</span>
+                        <span>n</span>
+                        <span>t</span>
+                        <span>h</span>
+                        <span>r</span>
+                        <span>o</span>
+                        <span>p</span>
+                        <span>y</span>
+                    </a></li>
+                    <li><a href="#"><i class="fas fa-blog"></i>
+                        <span>S</span>
+                        <span>h</span>
+                        <span>o</span>
+                        <span>p</span>
+                    </a></li>
+                   
+                </ul>
+
+              
+       
 
     </nav>
     
@@ -185,94 +309,12 @@
             </div>
     </div>
 
-    <div class="burger-menu">
-            <div id="side-menu" class="sidebar">
-                
-                <ul>
-                    <li id="closeButton"><a href="#" onclick="closeSlideMenu()">&times;</a></li>
-                    <li><a href="/"><i class="fas fa-home"></i>
-                        <span>H</span>
-                        <span>o</span>
-                        <span>m</span>
-                        <span>e</span>
-                    </a></li>
-                    <li><a href="#"><i class="fas fa-address-card"></i>
-                        <span>A</span>
-                        <span>b</span>
-                        <span>o</span>
-                        <span>u</span>
-                        <span>t</span>
-                        </a></li>
-                    <li><a href="/news"><i class="fas fa-user"></i>
-                        <span>N</span>
-                        <span>e</span>
-                        <span>w</span>
-                        <span>s</span>
-                    </a></li>
-                    <li><a href="#"><i class="fas fa-user"></i>
-                        <span>M</span>
-                        <span>u</span>
-                        <span>s</span>
-                        <span>i</span>
-                        <span>c</span>
-                    </a></li>
-                    <li><a href="#"><i class="fas fa-user"></i>
-                        <span>A</span>
-                        <span>r</span>
-                        <span>t</span>
-                        <span>i</span>
-                        <span>s</span>
-                        <span>t</span>
-                        <span>s</span>
-                    </a></li>
-                    <li><a href="#"><i class="fas fa-user"></i>
-                        <span>S</span>
-                        <span>p</span>
-                        <span>o</span>
-                        <span>r</span>
-                        <span>t</span>
-                        <span>s</span>
-                    </a></li>
-                    <li><a href="#"><i class="fas fa-address-book"></i>
-                        <span>P</span>
-                        <span>a</span>
-                        <span>r</span>
-                        <span>t</span>
-                        <span>n</span>
-                        <span>e</span>
-                        <span>r</span>
-                        <span>s</span>
-                    </a></li>
-                    
-                    <li><a href="#"><i class="fas fa-project-diagram"></i>
-                        <span>P</span>
-                        <span>h</span>
-                        <span>i</span>
-                        <span>l</span>
-                        <span>a</span>
-                        <span>n</span>
-                        <span>t</span>
-                        <span>h</span>
-                        <span>r</span>
-                        <span>o</span>
-                        <span>p</span>
-                        <span>y</span>
-                    </a></li>
-                    <li><a href="#"><i class="fas fa-blog"></i>
-                        <span>S</span>
-                        <span>h</span>
-                        <span>o</span>
-                        <span>p</span>
-                    </a></li>
-                   
-                </ul>
+   
 
-                <div class="social_media">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-    </div>
+   
+    <script type="text/javascript">
+        
+        
+    </script>
 </body>
 </html>
