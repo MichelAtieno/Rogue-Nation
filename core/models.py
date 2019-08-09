@@ -9,6 +9,7 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+    
 
 class Artist(models.Model):
     image = models.ImageField(upload_to="artist_media/", blank=True)

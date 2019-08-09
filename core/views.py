@@ -1,7 +1,7 @@
 from django.db.models import Count, Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
-from .models import NewsItem, SignUp, Artist, Athlete, Category
+from .models import NewsItem, SignUp, Artist, Athlete,Category
 
 # Create your views here.
 
