@@ -15,10 +15,10 @@ body {
 
 nav{
     display: flex;
-    justify-content: space-around;
+    
     align-items: center;
     text-align:center;
-    min-height: 8vh;
+    min-height: 6vh;
     background-color: #000;
 }
 
@@ -142,16 +142,21 @@ nav h2 {
     cursor: pointer;
     position: absolute;
     margin-top: -30px;
-    width: 0;
-    height: 0;
-    border-style: solid;
+    width: 60px;
+    height: 60px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
 }
 
 #arrow-left{
-    border-width: 30px 40px 30px 0;
-    border-color: transparent #000 transparent transparent;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    /* border-width: 30px 40px 30px 0;
+    border-color: transparent #000 transparent transparent; */
     left:0;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 
@@ -282,13 +287,7 @@ transition: all .5s;
 }
 
 
-@media screen and (max-width:100px){
-
-    
-}
-
-
-@media screen and (max-width:800px){
+@media screen and (max-width:767px){
     
 
     

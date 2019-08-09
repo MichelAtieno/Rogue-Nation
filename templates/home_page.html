@@ -45,9 +45,11 @@
             }
             
             #arrow-right{
-                border-width: 30px 0 30px 40px;
-                border-color: transparent transparent transparent #000;
-                left: 70.9%;
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                /* border-width: 30px 0 30px 40px;
+                border-color: transparent transparent transparent #000; */
+                left: 69%;
                 
             }
            
@@ -110,9 +112,27 @@
                 color:#fff;
                 font-size: 16px;
             }
+            @media screen and (min-width:1024px){
+                .main_content{
+                    margin-left: 190px;
+                }
 
+                .main_content .header{
+                    padding: 20px;
+                    background: #fff;
+                    color: #717171;
+                    border-bottom: 1px solid #e0e4e8;
+                }
+                #arrow-left{ 
+                    margin-left: 12px;
+                }
 
-            @media screen and (max-width:800px){
+                #arrow-right{
+                    left: 66%;
+                }
+            }
+
+            @media screen and (max-width:767px){
 
                 #news_title{
                     display: none;
@@ -145,15 +165,13 @@
                 .arrow{
                     top: 50%
                 }
+                
                 #arrow-left{
-                    border-width: 20px 30px 20px 0;
-                }
-                #arrow-right{
-                    border-width: 20px 0 20px 30px;
+                    margin-left: 10px;
                 }
                 
                 #arrow-right{
-                    left: 65%;
+                    left: 55%;
                 }
                 .slide-content .btn{
                     padding: 0.2rem 1.2rem;
@@ -163,6 +181,24 @@
                    
                     font-size: 0.8rem;
                 }
+            }
+            @media screen and (min-width:768px){
+                nav{
+                    width: 100%;
+                }
+
+
+                .main_content{
+                    margin-left: 195px;
+                }
+                #arrow-right{
+                    left: 63%;
+                }
+                #arrow-left{
+                   margin-left:12px;
+                }
+
+
             }
         </style>
         

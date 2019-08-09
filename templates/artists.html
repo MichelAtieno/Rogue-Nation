@@ -3,44 +3,27 @@
 {% block content %}
 <head>
     <style>
-        .imageBox{
-            position: relative;
-            margin: 10px auto;
-            border-radius: 4px;
-            overflow: hidden;
-            max-width: 300px;
-            max-height: 300px;
-        }
-        .imageBox img{
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+       
+
+        @media screen and (min-width:768px) and (min-height:1024px){
+            #news_title{
+                height:4vh;
+                margin-left:195px;
+            }
+            .main_content{
+                margin-left: 220px;
+            }
+            .main_content imageBox{
+                max-width: 500px;
+                max-height: 500px;
+            }
+            .imageBox img{
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                
+            }
             
-        }
-
-        .imageBox h3{
-            position: absolute;
-            margin: 0;
-            padding: 0;
-           
-            transform: translateY(50px);
-            text-align: center;
-            width: 100%;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-            transition: .5s;
-        }
-
-        .imageBox:hover{
-            opacity: 0.5;
-            background-color: bisque;
-        }
-        
-        .imageBox:hover h3{
-            top: 50%;
-            transform: translateY(-50%);
-           
         }
     </style>
         
