@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, news, post, search, news_letter, get_artist, artist_profile, get_athlete, athlete_profile,single_category
+from .views import home, news, post, search, news_letter, get_artist, artist_profile, get_athlete, athlete_profile,category_profile
 app_name= 'core'
 
 urlpatterns = [
@@ -12,5 +12,5 @@ urlpatterns = [
     path('artist/<id>',artist_profile, name="artist_profile"),
     path('athletes/',get_athlete, name="athlete"),
     path('athlete/<id>',athlete_profile, name="athlete_profile"),
-    path('category/',single_category, name="category"),
+    path('category/<id>',category_profile, name="category_profile")
 ]

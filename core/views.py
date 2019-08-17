@@ -126,15 +126,15 @@ def athlete_profile(request, id):
     }
     return render(request, 'athlete_profile.html', context)
 
-def single_category(request):
-    queryset = Athlete.objects.all()
-    print(queryset)
-    query = request.GET.get('q')
-    if query:
-        queryset = queryset.filter(
-            Q(categories__title=query)
-        ).distinct()
+def category_profile(request, id):
+    one_category = get_object_or_404(Category, id=id)
+    cat_queryset = Athlete.objects.all()
+    cat_query = one_category.title
+    cat_queryset = cat_queryset.filter(Q(categories__title__icontains=cat_query)).distinct()
     context = {
-        'queryset': queryset
-    }
+        'one_category': one_category,
+        'queryset': cat_queryset
+     }
     return render(request, 'category.html', context)
+
+

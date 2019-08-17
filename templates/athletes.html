@@ -42,18 +42,11 @@
                     <div>
                         {% for cat in all_categories %}
                             <span>
-                                <a href="">{{ cat }}</a>  
+                                <a href="{{ cat.get_category_absolute_url }}">{{ cat }}</a>  
                             </span>
                         {% endfor %}
                     </div>
-                <div class="col-md-3 col-xs-12 search">
-                    <form action="{% url 'core:category' %}" class="search-form">
-                        <div class="form-group">
-                        <input type="search" name="q" placeholder="Search Here">
-                        <button type="submit" class="submit"><i class="fas fa-search"></i></button>
-                        </div>
-                    </form>
-                </div>
+               
                 <div class="row">
                    
                         {% for athlete in athletes %}
