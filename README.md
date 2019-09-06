@@ -2,9 +2,9 @@
 # By Michel Atieno, created on 20th August 2019.
 
 ### Description
-![alt text](https://github.com/MichelAtieno/Michel-Atieno-August-2019/Rogue_Paperplanes.png)
+A website where you get the latest sports and entertainment news on artists and athletes I love in Kenya.
 
-# You can view project on https://rogue-nation.herokuapp.com/
+### You can view project on https://rogue-nation.herokuapp.com/
 
 
 ## Set-up and Installation
@@ -23,7 +23,7 @@
 <ul>            
 
 ## Known bugs
-None so far.
+Project in development 
 
 ## Technologies used
     - Python 3.6.6 (Django 2.2 Framework)
@@ -32,7 +32,7 @@ None so far.
     - Site deployed to Heroku
 
 ## Support and contact details
-Contact me on michelatieno23.com for any comments, reviews or advice.
+Contact me on michelatieno23@gmail.com for any comments, reviews or advice.
 
 ### MIT License
 Copyright (c) **Michel Atieno**
